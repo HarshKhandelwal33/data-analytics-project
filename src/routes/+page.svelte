@@ -1,2 +1,6 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://svelte.dev/docs/kit">svelte.dev/docs/kit</a> to read the documentation</p>
+export async function load({ fetch, params }) {
+  const response = await fetch('https://raw.githubusercontent.com/domoritz/maps/master/data/iris.json')
+  const dataFlowers = await response.json()
+
+  return { flowers: dataFlowers }
+}
